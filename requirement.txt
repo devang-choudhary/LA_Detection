@@ -1,0 +1,9 @@
+ktrain
+torch
+numpy
+pandas
+tensorflow
+tqdm
+flask
+sckit-learn
+transformers
