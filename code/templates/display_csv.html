@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Display</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Nunito', sans-serif;
+            padding-top: 20px;
+        }
+
+        .container {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .scrollable-table {
+            overflow-y: auto;
+            height: 400px; /* Adjust as needed */
+        }
+
+        .table {
+            margin-bottom: 0; /* Remove bottom margin for table within scrollable area */
+        }
+
+        .table thead th {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .pagination .page-link {
+            color: #007bff; /* Keep consistent with the table header */
+        }
+
+        .page-item.active .page-link {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        nav[aria-label="Page navigation"] {
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Model Prediction Results</h2>
+        <div class="scrollable-table">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        {% if csv_content %}
+                            {% for header in csv_content[0] %}
+                                <th>{{ header }}</th>
+                            {% endfor %}
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if csv_content %}
+                        {% for row in csv_content[1:] %}
+                            <tr>
+                                {% for cell in row %}
+                                    <td>{{ cell }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if current_page <= 1 %}disabled{% endif %}">
+                    <a class="page-link" href="?page={{ current_page - 1 }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; Previous</span>
+                    </a>
+                </li>
+                <!-- Pagination Logic Here -->
+                <li class="page-item {% if current_page >= max_page %}disabled{% endif %}">
+                    <a class="page-link" href="?page={{ current_page + 1 }}" aria-label="Next">
+                        <span aria-hidden="true">Next &raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

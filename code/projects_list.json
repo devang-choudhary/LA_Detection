@@ -1,0 +1,12 @@
+{
+    "buildship": "https://github.com/eclipse/steady.git",
+    "eclips-collections": "https://github.com/eclipse/eclipse-collections.git",
+    "hawkbit": "https://github.com/eclipse/hawkbit.git",
+    "jkube": "https://github.com/eclipse/jkube.git",
+    "kura": "https://github.com/eclipse/kura.git",
+    "jifa": "https://github.com/eclipse/microprofile.git",
+    "milo": "https://github.com/eclipse/milo.git",
+    "openvsx": "https://github.com/eclipse/openvsx.git",
+    "steady": "https://github.com/eclipse/steady.git",
+    "xtext": "https://github.com/eclipse/xtext.git"
+}

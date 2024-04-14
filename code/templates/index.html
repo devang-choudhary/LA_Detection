@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linguistic Antipattern Correction</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background and Font Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+            color: #495057;
+            padding: 40px 0;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* Container for the Form */
+        .container {
+            max-width: 680px; /* Reduced width */
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Styling Headings */
+        h2 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Styling the Form and its Elements */
+        .code-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .code-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            resize: none;
+            transition: border-color 0.2s ease-in-out;
+            height: 200px; /* Increased height */
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .code-input:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+        }
+
+        /* Styling the Submit Button */
+        .submit-btn {
+            padding: 10px 20px;
+            background-image: linear-gradient(45deg, #007bff, #6610f2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-image 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-image: linear-gradient(45deg, #0056b3, #520dab);
+        }
+
+        /* Adding a subtle entry animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            animation: slideIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Code Snippet</h2>
+        <form action="/" method="post" class="code-form">
+            <textarea name="code" class="code-input"></textarea>
+            <input type="submit" value="Correct Code" class="submit-btn">
+        </form>
+    </div>
+</body>
+</html>
